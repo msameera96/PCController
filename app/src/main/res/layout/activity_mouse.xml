@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.Keyboard">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/cardMenu"
+        android:elevation="4dp"
+        >
+        <TextView
+
+            android:layout_width="match_parent"
+            android:id="@+id/mouseTextView"
+            android:layout_height="50dp"
+            android:text="Mouse"
+            android:gravity="center"
+            android:background="#00ff7f"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            android:elevation="6dp"/>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/leftBtn"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp"
+        android:textColor="#000000"
+        android:background="@drawable/button_selector"
+        android:text=" " />
+
+    <Button
+        android:id="@+id/rightBtn"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/leftBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#000000"
+        android:background="@drawable/button_selector"
+        android:text=" " />
+</RelativeLayout>
+

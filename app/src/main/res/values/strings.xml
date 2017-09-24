@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PC Controller</string>
+    <string-array name="remote_activities">
+        <item>Command Prompt</item>
+        <item>File Transfer</item>
+        <item>Keyboard</item>
+        <item>Mouse</item>
+        <item>Power Control</item>
+        <item>Power Point</item>
+        <item>Remote Desktop</item>
+        <item>Volume Control</item>
+        <item>Word</item>
+
+    </string-array>
+</resources>

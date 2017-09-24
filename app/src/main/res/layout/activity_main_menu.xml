@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#808080"
+    tools:context="pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.MainMenu">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/cardMenu"
+            android:elevation="4dp"
+            >
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:id="@+id/textView3"
+                android:layout_height="50dp"
+                android:text="PC Controller menu"
+                android:gravity="center"
+                android:background="#00ff7f"
+                android:textColor="#000000"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:elevation="6dp"/>
+        </android.support.v7.widget.CardView>
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="5dp"
+            android:numColumns="3"
+            android:columnWidth="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:stretchMode="spacingWidthUniform"
+            android:id="@+id/grdView"
+            >
+
+
+        </GridView>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
