@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -24,7 +26,8 @@
         <activity android:name=".Keyboard" />
         <activity android:name=".PowerPoint" />
         <activity android:name=".PowerControl" />
-        <activity android:name=".Mouse"></activity>
+        <activity android:name=".Mouse" />
+        <activity android:name=".LiveScreen"></activity>
     </application>
 
 </manifest>

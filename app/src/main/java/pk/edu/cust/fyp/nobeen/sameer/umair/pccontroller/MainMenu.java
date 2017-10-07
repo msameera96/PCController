@@ -15,11 +15,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
     GridView gridView;
+    public static ObjectOutputStream objectOutputStream = null;
+    public static ObjectInputStream objectInputStream = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,59 +35,179 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
 
 
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        OutputStreamSocketInitializer ossi = new OutputStreamSocketInitializer();
+        ossi.setSocketToOOS();
+        Intent intent;
+                switch (position)
+                {
+                    case 0:
+                        Toast.makeText(getApplicationContext(), "CMD", Toast.LENGTH_SHORT).show();
+
+                        break;
 
 
-         if(position == 0)
-        {
+                    case 1:
+                        Toast.makeText(getApplicationContext(), "File Transfer", Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(getApplicationContext(),"CMD",Toast.LENGTH_SHORT).show();
-        }
-        else if(position == 1)
-        {
-            Toast.makeText(getApplicationContext(),"File Transfer",Toast.LENGTH_SHORT).show();
-        }
-        else if(position == 2)
-        {
-            Toast.makeText(getApplicationContext(),"Remote Keyboard",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, Keyboard.class);
-            startActivity(intent);
-        }
-        else if(position == 3)
-        {
-            Toast.makeText(getApplicationContext(),"Remote Mouse",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, Mouse.class);
-            startActivity(intent);
-        }
-        else if(position == 4)
-        {
-            Toast.makeText(getApplicationContext(),"Power Control",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, PowerControl.class);
-            startActivity(intent);
-        }
-        else if(position == 5)
-        {
-            Toast.makeText(getApplicationContext(),"Power Point",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, PowerPoint.class);
-            startActivity(intent);
-        }
-        else if(position == 6)
-        {
-            Toast.makeText(getApplicationContext(),"Remote Desktop",Toast.LENGTH_SHORT).show();
-        }
-        else if(position == 7)
-        {
-            Toast.makeText(getApplicationContext(),"Volume Control",Toast.LENGTH_SHORT).show();
-        }
-        else if(position == 8)
-        {
-            Toast.makeText(getApplicationContext(),"Microsoft Word",Toast.LENGTH_SHORT).show();
-        }
+                        break;
 
-    }}
+                    case 2:
+                        Toast.makeText(getApplicationContext(), "Remote Keyboard", Toast.LENGTH_SHORT).show();
+
+                        intent = new Intent(this, Keyboard.class);
+                        startActivity(intent);
+                        break;
+
+
+                    case 3:
+                        Toast.makeText(getApplicationContext(), "Remote Mouse", Toast.LENGTH_SHORT).show();
+
+                        intent = new Intent(this, Mouse.class);
+                        startActivity(intent);
+                        break;
+
+
+                    case 4:
+                        Toast.makeText(getApplicationContext(), "Power Control", Toast.LENGTH_SHORT).show();
+
+                        intent = new Intent(this, PowerControl.class);
+                        startActivity(intent);
+                        break;
+
+
+                    case 5:
+                        Toast.makeText(getApplicationContext(), "Power Point", Toast.LENGTH_SHORT).show();
+
+                        intent = new Intent(this, PowerPoint.class);
+                        startActivity(intent);
+                        break;
+
+
+                    case 6:
+                        Toast.makeText(getApplicationContext(), "Remote Desktop", Toast.LENGTH_SHORT).show();
+
+                        intent = new Intent(this,LiveScreen.class);
+                        startActivity(intent);
+                        break;
+
+
+                    case 7:
+                        Toast.makeText(getApplicationContext(), "Volume Control", Toast.LENGTH_SHORT).show();
+
+                        break;
+
+
+                    case 8:
+                        Toast.makeText(getApplicationContext(), "Microsoft Word", Toast.LENGTH_SHORT).show();
+
+                        break;
+
+                }
+
+
+    }
+
+    public static void sendMessageToServer(String message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try {
+                MainMenu.objectOutputStream.writeObject(message);
+                MainMenu.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
+
+    public static void sendMessageToServer(int message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try{
+            MainMenu.objectOutputStream.writeObject(message);
+            MainMenu.objectOutputStream.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+            socketException();
+        }
+    }
+}
+
+    static void socketException() {
+
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try{
+                clientSocket.close();
+                MainMenu.objectOutputStream.close();
+               // MainMenu.clientSocket = null;
+            } catch(Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void sendMessageToServer(float message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try {
+                MainMenu.objectOutputStream.writeObject(message);
+                MainMenu.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
+
+    public static void sendMessageToServer(long message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try {
+                MainMenu.objectOutputStream.writeObject(message);
+                MainMenu.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
+}
+
+
+class OutputStreamSocketInitializer
+{
+    //String module;
+    OutputStreamSocketInitializer(){}
+    void setSocketToOOS() {
+        //module = mod;
+        Thread conThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+               // DataOutputStream dos;
+                try {
+                    Socket socket;
+
+                    SocketHandler socketHandler = null;
+                    socket = socketHandler.getSocket();
+                    MainMenu.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+
+                   // dos = new DataOutputStream(socket.getOutputStream());
+                   // dos.writeUTF(module);
+
+                } catch (Exception ex) {
+                }
+            }
+        });
+        conThread.start();
+    }
+
+}
 
 
 class ActivityIcon
