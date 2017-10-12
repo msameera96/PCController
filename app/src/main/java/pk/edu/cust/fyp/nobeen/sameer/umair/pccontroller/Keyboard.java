@@ -15,8 +15,6 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
     private EditText keyboardEditText;
     private Button ctrlButton, altButton, shiftButton, enterButton, tabButton, escButton, printScrButton, backspaceButton;
     private Button deleteButton, clearTextButton;
-    private Button nButton, tButton, wButton, rButton, fButton, zButton;
-    private Button cButton, xButton, vButton, aButton, oButton, sButton;
     private Button ctrlAltTButton, ctrlShiftZButton, altF4Button;
     private String previousText = "";
 
@@ -41,18 +39,6 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
         backspaceButton = (Button) findViewById(R.id.backspaceButton);
         deleteButton = (Button) findViewById(R.id.deleteButton);
         clearTextButton = (Button) findViewById(R.id.clearTextButton);
-        nButton = (Button) findViewById(R.id.nButton);
-        tButton = (Button) findViewById(R.id.tButton);
-        wButton = (Button) findViewById(R.id.wButton);
-        rButton = (Button) findViewById(R.id.rButton);
-        fButton = (Button) findViewById(R.id.fButton);
-        zButton = (Button) findViewById(R.id.zButton);
-        cButton = (Button) findViewById(R.id.cButton);
-        xButton = (Button) findViewById(R.id.xButton);
-        vButton = (Button) findViewById(R.id.vButton);
-        aButton = (Button) findViewById(R.id.aButton);
-        oButton = (Button) findViewById(R.id.oButton);
-        sButton = (Button) findViewById(R.id.sButton);
         ctrlAltTButton = (Button) findViewById(R.id.ctrlAltTButton);
         ctrlShiftZButton = (Button) findViewById(R.id.ctrlShiftZButton);
         altF4Button = (Button) findViewById(R.id.altF4Button);
@@ -66,18 +52,6 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
         printScrButton.setOnClickListener(this);
         deleteButton.setOnClickListener(this);
         clearTextButton.setOnClickListener(this);
-        nButton.setOnClickListener(this);
-        tButton.setOnClickListener(this);
-        wButton.setOnClickListener(this);
-        rButton.setOnClickListener(this);
-        fButton.setOnClickListener(this);
-        zButton.setOnClickListener(this);
-        cButton.setOnClickListener(this);
-        xButton.setOnClickListener(this);
-        vButton.setOnClickListener(this);
-        aButton.setOnClickListener(this);
-        oButton.setOnClickListener(this);
-        sButton.setOnClickListener(this);
         ctrlAltTButton.setOnClickListener(this);
         ctrlShiftZButton.setOnClickListener(this);
         altF4Button.setOnClickListener(this);
@@ -144,42 +118,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
                 case  R.id.deleteButton:
                     keyCode = 127;
                     break;
-                case  R.id.nButton:
-                    keyCode = 78;
-                    break;
-                case  R.id.tButton:
-                    keyCode = 84;
-                    break;
-                case  R.id.wButton:
-                    keyCode = 87;
-                    break;
-                case  R.id.rButton:
-                    keyCode = 82;
-                    break;
-                case  R.id.fButton:
-                    keyCode = 70;
-                    break;
-                case  R.id.zButton:
-                    keyCode = 90;
-                    break;
-                case  R.id.cButton:
-                    keyCode = 67;
-                    break;
-                case  R.id.xButton:
-                    keyCode = 88;
-                    break;
-                case  R.id.vButton:
-                    keyCode = 86;
-                    break;
-                case  R.id.aButton:
-                    keyCode = 65;
-                    break;
-                case  R.id.oButton:
-                    keyCode = 79;
-                    break;
-                case  R.id.sButton:
-                    keyCode = 83;
-                    break;
+
                 case  R.id.backspaceButton:
                     keyCode = 8;
                     break;

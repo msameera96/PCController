@@ -36,6 +36,14 @@ public class Mouse extends AppCompatActivity {
 
             }
         });
+        touchPadTextView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                simulateLeftClick();
+
+            }
+        });
         touchPadTextView.setOnTouchListener(new View.OnTouchListener()
         {
             @Override

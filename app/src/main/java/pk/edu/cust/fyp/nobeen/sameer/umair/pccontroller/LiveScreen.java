@@ -9,10 +9,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import java.net.Socket;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class LiveScreen extends AppCompatActivity {
 
@@ -81,7 +80,7 @@ public class LiveScreen extends AppCompatActivity {
                             long interval = currentPressTime - lastPressTime;
                             if (interval >= 500 && !mouseMoved) {
                                 MainMenu.sendMessageToServer("LEFT_CLICK");
-                                //delayedUpdateScreenshot();
+                                delayedUpdateScreenshot();
                             }
                             lastPressTime = currentPressTime;
                             break;
@@ -109,10 +108,18 @@ public class LiveScreen extends AppCompatActivity {
                         Bitmap rotated = Bitmap.createBitmap(bitmap ,0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
                         screenshotImageView.setImageBitmap(rotated);
                     } catch(Exception e) {
-                        Toast.makeText(null, "Error occur on update Screen shot", Toast.LENGTH_SHORT).show();
+                       e.printStackTrace();
                     }
                 }
-            };
+            }.execute();
         }
+    }
+    private void delayedUpdateScreenshot() {
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                updateScreenshot();
+            }
+        }, 500);
     }
 }

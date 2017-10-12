@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     Button connectBtn;
     EditText ipAddressEditTxt;
     int port=4444;
-    Socket socket = null;
-    SocketHandler socketHandler = null;
     private static final String TAG="debug";
 
     @Override
@@ -46,50 +44,33 @@ public class MainActivity extends AppCompatActivity {
 
         connectBtn = (Button) findViewById(R.id.connect);
         ipAddressEditTxt = (EditText) findViewById(R.id.ipEditText);
-        socketHandler = new SocketHandler();
         connectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Thread conThread =new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try
-                        {
-
-                            Log.i(TAG, "Attempting to connect to server");
-                            socket = new Socket(ipAddressEditTxt.getText().toString(), port);
-                            Log.i(TAG, "Connection established");
-                            socketHandler.setSocket(socket);
-                            Log.i(TAG,"Socket is Connected: "+socket.isConnected());
+                if(ValidateIP.validateIP(ipAddressEditTxt.getText().toString())) {
 
 
-                        } catch (
-                                Exception ex)
+                    Conection conection = new Conection();
+                    if (conection.connectionEstablishing(ipAddressEditTxt.getText().toString(), port)) {
+                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 
-                        {
-                            Toast.makeText(getApplicationContext(), "Exception occur" + ex, Toast.LENGTH_SHORT).show();
-                        }
+                        Intent intent;
+                        intent = new Intent(MainActivity.this, Login.class);
+                        startActivity(intent);
 
-                    }
-                });
-                conThread.start();
-                if(true)
+                    } else
+                        Toast.makeText(getApplicationContext(), "Connection Failed", Toast.LENGTH_SHORT).show();
+
+                }else
                 {
-                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-
-                    Intent intent;
-                    intent = new Intent(MainActivity.this, Login.class);
-                    startActivity(intent);
-
-                } else
-                    Toast.makeText(getApplicationContext(), "Connection Failed", Toast.LENGTH_SHORT).show();
-
-
+                    Toast.makeText(getApplicationContext(), "Invalid IP Format", Toast.LENGTH_SHORT).show();
+                }
 
 
             }
         });
     }
+
 
 
 }

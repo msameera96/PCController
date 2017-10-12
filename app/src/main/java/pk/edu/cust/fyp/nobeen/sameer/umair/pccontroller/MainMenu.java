@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
     GridView gridView;
+    public static Socket socket;
     public static ObjectOutputStream objectOutputStream = null;
     public static ObjectInputStream objectInputStream = null;
     @Override
@@ -31,10 +32,6 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
         gridView = (GridView) findViewById(R.id.grdView);
         gridView.setAdapter(new MainMenuAdapter(this));
         gridView.setOnItemClickListener(this);
-
-
-
-
 
     }
 
@@ -182,23 +179,19 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
 class OutputStreamSocketInitializer
 {
-    //String module;
+
     OutputStreamSocketInitializer(){}
     void setSocketToOOS() {
-        //module = mod;
+
         Thread conThread = new Thread(new Runnable() {
             @Override
             public void run() {
-               // DataOutputStream dos;
                 try {
                     Socket socket;
 
                     SocketHandler socketHandler = null;
                     socket = socketHandler.getSocket();
                     MainMenu.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-
-                   // dos = new DataOutputStream(socket.getOutputStream());
-                   // dos.writeUTF(module);
 
                 } catch (Exception ex) {
                 }
