@@ -19,9 +19,9 @@ public class Conection {
                 {
 
                     //  Log.i(TAG, "Attempting to connect to server");
-                    MainMenu.socket = new Socket(ipAddress, port);
+                    MainActivity.socket = new Socket(ipAddress, port);
                     // Log.i(TAG, "Connection established");
-                    SocketHandler.setSocket(MainMenu.socket);
+                    SocketHandler.setSocket(MainActivity.socket);
                     // Log.i(TAG,"Socket is Connected: "+MainMenu.socket.isConnected());
 
 

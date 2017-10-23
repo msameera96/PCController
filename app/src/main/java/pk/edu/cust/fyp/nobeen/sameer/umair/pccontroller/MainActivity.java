@@ -20,6 +20,8 @@ import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     EditText ipAddressEditTxt;
     int port=4444;
     private static final String TAG="debug";
+    public static Socket socket;
+    public static ObjectOutputStream objectOutputStream = null;
+    public static ObjectInputStream objectInputStream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +76,74 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public static void sendMessageToServer(String message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try {
+                MainActivity.objectOutputStream.writeObject(message);
+                MainActivity.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
 
+    public static void sendMessageToServer(int message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try{
+                MainActivity.objectOutputStream.writeObject(message);
+                MainActivity.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
 
+    static void socketException() {
+
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try{
+                clientSocket.close();
+                MainActivity.objectOutputStream.close();
+                // MainMenu.clientSocket = null;
+            } catch(Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void sendMessageToServer(float message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try {
+                MainActivity.objectOutputStream.writeObject(message);
+                MainActivity.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
+
+    public static void sendMessageToServer(long message) {
+        Socket clientSocket=SocketHandler.getSocket();
+        if (clientSocket != null) {
+            try {
+                MainActivity.objectOutputStream.writeObject(message);
+                MainActivity.objectOutputStream.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+                socketException();
+            }
+        }
+    }
 }
+
+
+
+
 

@@ -66,10 +66,10 @@ public class Mouse extends AppCompatActivity {
                                 initX = (int) event.getX();
                                 initY = (int) event.getY();
                                 if (disX != 0 || disY != 0) {
-                                    MainMenu.sendMessageToServer("MOUSE_MOVE");
+                                    MainActivity.sendMessageToServer("MOUSE_MOVE");
                                     //send mouse movement to server
-                                    MainMenu.sendMessageToServer(disX);
-                                    MainMenu.sendMessageToServer(disY);
+                                    MainActivity.sendMessageToServer(disX);
+                                    MainActivity.sendMessageToServer(disY);
                                     mouseMoved=true;
                                 }
                             }
@@ -78,8 +78,8 @@ public class Mouse extends AppCompatActivity {
                                 disY = (int) disY / 2;//to scroll by less amount
                                 initY = (int) event.getY();
                                 if(disY != 0) {
-                                    MainMenu.sendMessageToServer("MOUSE_WHEEL");
-                                    MainMenu.sendMessageToServer(disY);
+                                    MainActivity.sendMessageToServer("MOUSE_WHEEL");
+                                    MainActivity.sendMessageToServer(disY);
                                     mouseMoved=true;
                                 }
                             }
@@ -88,7 +88,7 @@ public class Mouse extends AppCompatActivity {
                         case MotionEvent.ACTION_UP:
                             //consider a tap only if user did not move mouse after ACTION_DOWN
                             if(!mouseMoved){
-                                MainMenu.sendMessageToServer("LEFT_CLICK");
+                                MainActivity.sendMessageToServer("LEFT_CLICK");
                             }
                             break;
                         case MotionEvent.ACTION_POINTER_DOWN:
@@ -98,7 +98,7 @@ public class Mouse extends AppCompatActivity {
                             break;
                         case MotionEvent.ACTION_POINTER_UP:
                             if(!mouseMoved) {
-                                MainMenu.sendMessageToServer("LEFT_CLICK");
+                                MainActivity.sendMessageToServer("LEFT_CLICK");
                             }
                             moultiTouch = false;
                             break;
@@ -110,12 +110,12 @@ public class Mouse extends AppCompatActivity {
     }
     private void simulateLeftClick() {
         String message = "LEFT_CLICK";
-        MainMenu.sendMessageToServer(message);
+        MainActivity.sendMessageToServer(message);
     }
 
     private void simulateRightClick() {
         String message = "RIGHT_CLICK";
-        MainMenu.sendMessageToServer(message);
+        MainActivity.sendMessageToServer(message);
     }
 
 }

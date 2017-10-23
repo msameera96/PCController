@@ -14,17 +14,13 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
     GridView gridView;
-    public static Socket socket;
-    public static ObjectOutputStream objectOutputStream = null;
-    public static ObjectInputStream objectInputStream = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +33,7 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        OutputStreamSocketInitializer ossi = new OutputStreamSocketInitializer();
+       OutputStreamSocketInitializer ossi = new OutputStreamSocketInitializer();
         ossi.setSocketToOOS();
         Intent intent;
                 switch (position)
@@ -109,73 +105,6 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
     }
 
-    public static void sendMessageToServer(String message) {
-        Socket clientSocket=SocketHandler.getSocket();
-        if (clientSocket != null) {
-            try {
-                MainMenu.objectOutputStream.writeObject(message);
-                MainMenu.objectOutputStream.flush();
-            } catch (Exception e) {
-                e.printStackTrace();
-                socketException();
-            }
-        }
-    }
-
-    public static void sendMessageToServer(int message) {
-        Socket clientSocket=SocketHandler.getSocket();
-        if (clientSocket != null) {
-            try{
-            MainMenu.objectOutputStream.writeObject(message);
-            MainMenu.objectOutputStream.flush();
-        } catch (Exception e) {
-            e.printStackTrace();
-            socketException();
-        }
-    }
-}
-
-    static void socketException() {
-
-        Socket clientSocket=SocketHandler.getSocket();
-        if (clientSocket != null) {
-            try{
-                clientSocket.close();
-                MainMenu.objectOutputStream.close();
-               // MainMenu.clientSocket = null;
-            } catch(Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void sendMessageToServer(float message) {
-        Socket clientSocket=SocketHandler.getSocket();
-        if (clientSocket != null) {
-            try {
-                MainMenu.objectOutputStream.writeObject(message);
-                MainMenu.objectOutputStream.flush();
-            } catch (Exception e) {
-                e.printStackTrace();
-                socketException();
-            }
-        }
-    }
-
-    public static void sendMessageToServer(long message) {
-        Socket clientSocket=SocketHandler.getSocket();
-        if (clientSocket != null) {
-            try {
-                MainMenu.objectOutputStream.writeObject(message);
-                MainMenu.objectOutputStream.flush();
-            } catch (Exception e) {
-                e.printStackTrace();
-                socketException();
-            }
-        }
-    }
-}
-
 
 class OutputStreamSocketInitializer
 {
@@ -191,7 +120,7 @@ class OutputStreamSocketInitializer
 
                     SocketHandler socketHandler = null;
                     socket = socketHandler.getSocket();
-                    MainMenu.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                    MainActivity.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 
                 } catch (Exception ex) {
                 }
@@ -225,22 +154,20 @@ class ViewHolder
 
             }
         }
-class MainMenuAdapter extends BaseAdapter
-{
+class MainMenuAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList <ActivityIcon> list;
-    MainMenuAdapter (Context context)
-    {
+    ArrayList<ActivityIcon> list;
+
+    MainMenuAdapter(Context context) {
         this.context = context;
         int noOfIcons = 9;
         list = new ArrayList<ActivityIcon>();
         Resources res = context.getResources();
-       String[] tempIconName = res.getStringArray(R.array.remote_activities);
-        int [] activitiesThumbnails = {R.drawable.cmd,R.drawable.filetransfer,R.drawable.keyboard,R.drawable.mouse,R.drawable.power,R.drawable.powerpoint,R.drawable.desktop,R.drawable.volume,R.drawable.word};
-        for (int i=0;i<noOfIcons;i++)
-        {
-            ActivityIcon activityIcon = new ActivityIcon(activitiesThumbnails[i],tempIconName[i]);
+        String[] tempIconName = res.getStringArray(R.array.remote_activities);
+        int[] activitiesThumbnails = {R.drawable.cmd, R.drawable.filetransfer, R.drawable.keyboard, R.drawable.mouse, R.drawable.power, R.drawable.powerpoint, R.drawable.desktop, R.drawable.volume, R.drawable.word};
+        for (int i = 0; i < noOfIcons; i++) {
+            ActivityIcon activityIcon = new ActivityIcon(activitiesThumbnails[i], tempIconName[i]);
             list.add(activityIcon);
         }
 
@@ -264,27 +191,24 @@ class MainMenuAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View row=convertView;
+        View row = convertView;
         ViewHolder holder = null;
 
-        if(row == null)
-        {
+        if (row == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.single_item,parent,false);
+            row = inflater.inflate(R.layout.single_item, parent, false);
             holder = new ViewHolder(row);
 
             row.setTag(holder);
-        }
-        else
-        {
+        } else {
             holder = (ViewHolder) row.getTag();
 
         }
-       ActivityIcon icn = list.get(position);
+        ActivityIcon icn = list.get(position);
         holder.actIcons.setImageResource(icn.images);
         holder.iconLabelTxt.setText(icn.iconName);
 
         return row;
     }
 
-}
+}}

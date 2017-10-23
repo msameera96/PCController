@@ -98,7 +98,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
                     message = "ALT_F4";
                     break;
             }
-            MainMenu.sendMessageToServer(message);
+            MainActivity.sendMessageToServer(message);
         } else {
             int keyCode = 17;//dummy initialization
             String action = "TYPE_KEY";
@@ -128,8 +128,8 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
 
     }
     private void sendKeyCodeToServer(String action, int keyCode) {
-        MainMenu.sendMessageToServer(action);
-        MainMenu.sendMessageToServer(keyCode);
+        MainActivity.sendMessageToServer(action);
+        MainActivity.sendMessageToServer(keyCode);
     }
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count,
@@ -141,8 +141,8 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
         if (ch == 0) {
             return;
         }
-        MainMenu.sendMessageToServer("TYPE_CHARACTER");
-        MainMenu.sendMessageToServer(Character.toString(ch));
+        MainActivity.sendMessageToServer("TYPE_CHARACTER");
+        MainActivity.sendMessageToServer(Character.toString(ch));
         previousText = s.toString();
     }
     @Override
