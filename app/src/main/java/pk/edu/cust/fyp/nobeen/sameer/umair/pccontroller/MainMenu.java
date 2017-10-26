@@ -14,12 +14,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
     GridView gridView;
+    OutputStreamSocketInitializer ossi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +27,16 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
         gridView = (GridView) findViewById(R.id.grdView);
         gridView.setAdapter(new MainMenuAdapter(this));
         gridView.setOnItemClickListener(this);
+         ossi = new OutputStreamSocketInitializer();
+        ossi.setSocketToOOS();
+
 
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-       OutputStreamSocketInitializer ossi = new OutputStreamSocketInitializer();
-        ossi.setSocketToOOS();
+
+
         Intent intent;
                 switch (position)
                 {
@@ -106,30 +108,6 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
     }
 
 
-class OutputStreamSocketInitializer
-{
-
-    OutputStreamSocketInitializer(){}
-    void setSocketToOOS() {
-
-        Thread conThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Socket socket;
-
-                    SocketHandler socketHandler = null;
-                    socket = socketHandler.getSocket();
-                    MainActivity.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-
-                } catch (Exception ex) {
-                }
-            }
-        });
-        conThread.start();
-    }
-
-}
 
 
 class ActivityIcon

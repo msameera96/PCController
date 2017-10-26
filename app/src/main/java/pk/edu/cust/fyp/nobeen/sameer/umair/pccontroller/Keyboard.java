@@ -84,7 +84,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
     public void onClick(View v) {
         int id = v.getId();
         if (id ==  R.id.clearTextButton) {
-            keyTxt.setText("");
+            keyboardEditText.setText("");
         } else if (id ==  R.id.ctrlAltTButton || id ==  R.id.ctrlShiftZButton || id ==  R.id.altF4Button) {
             String message = "CTRL_SHIFT_Z";
             switch (id) {

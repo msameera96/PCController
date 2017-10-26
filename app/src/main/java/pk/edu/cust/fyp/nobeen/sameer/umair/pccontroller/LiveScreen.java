@@ -36,6 +36,7 @@ public class LiveScreen extends AppCompatActivity {
                 screenshotImageViewY = screenshotImageView.getWidth();
                 ViewTreeObserver obs = screenshotImageView.getViewTreeObserver();
                 obs.removeGlobalOnLayoutListener(this);
+
             }
 
         });
@@ -57,6 +58,7 @@ public class LiveScreen extends AppCompatActivity {
                             mouseMoved = false;
                             /*startTime = System.currentTimeMillis();
                             clickCount++;*/
+                           // delayedUpdateScreenshot();
                             break;
                         case MotionEvent.ACTION_MOVE:
                             if (moultiTouch == false) {
@@ -79,7 +81,7 @@ public class LiveScreen extends AppCompatActivity {
                             long interval = currentPressTime - lastPressTime;
                             if (interval >= 500 && !mouseMoved) {
                                 MainActivity.sendMessageToServer("LEFT_CLICK");
-                                delayedUpdateScreenshot();
+                               // delayedUpdateScreenshot();
                             }
                             lastPressTime = currentPressTime;
                             break;
@@ -90,14 +92,16 @@ public class LiveScreen extends AppCompatActivity {
             }
         });
         timer = new Timer();
-        updateScreenshot();
+        specificTimeUpdateScreenshot();
+
         //Toast.makeText(this,"Before updateScreen",Toast.LENGTH_SHORT).show();
     }
 
     private void updateScreenshot() {
+
         if (SocketHandler.getSocket() != null) {
             MainActivity.sendMessageToServer("SCREENSHOT_REQUEST");
-            new UpdateScreen() {
+           new UpdateScreen() {
                 @Override
                 public void receiveData(Object result) {
                     String path = (String) result;
@@ -112,22 +116,21 @@ public class LiveScreen extends AppCompatActivity {
                     }
                 }
             }.execute();
+
+
         }
     }
 
-   private void delayedUpdateScreenshot() {
-      /* timer.scheduleAtFixedRate(new TimerTask() {
+   private void specificTimeUpdateScreenshot() {
+      timer.scheduleAtFixedRate(new TimerTask() {
            @Override
            public void run() {
                updateScreenshot();
            }
-       },100,200);*/
-       timer.schedule(new TimerTask() {
-           @Override
-           public void run() {
-               updateScreenshot();
-           }
-       }, 2000);
+       },1000,2000);
+
+      
+
 
    }
 

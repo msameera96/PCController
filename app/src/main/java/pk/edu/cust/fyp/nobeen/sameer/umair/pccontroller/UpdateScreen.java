@@ -18,6 +18,7 @@ import java.net.Socket;
     protected String doInBackground(Void... voids) {
 
 
+
                 FileOutputStream fos = null;
                 Socket clientSocket = SocketHandler.getSocket();
                 String path = new FileEnvironment().getExternalStoragePath();
@@ -25,16 +26,17 @@ import java.net.Socket;
                 //System.out.println("Screenshot url: " + path);
                 File file = new File(path);
                 File dirs = new File(file.getParent());
+
                 if (!dirs.exists()) {
                     dirs.mkdirs();
                 }
 
                 try {
                     if (clientSocket != null) {
-                        // if (MainMenu.objectInputStream == null) {
+                        if (MainActivity.objectInputStream == null) {
 
                         MainActivity.objectInputStream = new ObjectInputStream(clientSocket.getInputStream());
-                        // }
+                         }
                         fos = new FileOutputStream(file);
                         byte buffer[] = new byte[4096];
                         int fileSize = (int) MainActivity.objectInputStream.readObject();
@@ -57,9 +59,10 @@ import java.net.Socket;
                         e.printStackTrace();
                     }
                 }
-        return path;
-
+                return path;
             }
+
+
 
 
     protected void onPostExecute(String path) {
