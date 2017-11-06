@@ -129,7 +129,7 @@ public class LiveScreen extends AppCompatActivity {
            }
        },1000,2000);
 
-      
+
 
 
    }
