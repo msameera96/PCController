@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">PC Controller</string>
+    <string name="data_transfer">Data Transfer</string>
     <string-array name="remote_activities">
         <item>Command Prompt</item>
         <item>File Transfer</item>
@@ -11,5 +12,9 @@
         <item>Volume Control</item>
         <item>Word</item>
 
+    </string-array>
+    <string-array name="data">
+        <item>File Transfer</item>
+        <item>File Download</item>
     </string-array>
 </resources>

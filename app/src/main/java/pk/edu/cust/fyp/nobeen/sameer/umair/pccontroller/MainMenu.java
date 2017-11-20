@@ -47,7 +47,10 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
 
                     case 1:
-                        Toast.makeText(getApplicationContext(), "File Transfer", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "File Transfer", Toast.LENGTH_SHORT).show();
+                        DialogFragmentController dialogFragmentController = new DialogFragmentController();
+                        dialogFragmentController.customActivity(this);
+                        dialogFragmentController.show(getFragmentManager(),"MyDialog");
 
                         break;
 
