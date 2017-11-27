@@ -29,9 +29,8 @@
         <activity android:name=".Mouse" />
         <activity android:name=".LiveScreen" />
         <activity android:name=".DataTransfer.DataTransfer" />
-        <activity android:name=".MusicImageAvatar" />
-        <activity android:name=".FileTransfer.FileTransferAct" />
-        <activity android:name=".FileDownload.FileDownloadAct"></activity>
+        <activity android:name=".FileTransfer" />
+        <activity android:name=".FileDownload"></activity>
     </application>
 
 </manifest>

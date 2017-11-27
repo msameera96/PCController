@@ -96,6 +96,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 7:
                         Toast.makeText(getApplicationContext(), "Volume Control", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(this,VolumeActivity.class);
+                        startActivity(intent);
 
                         break;
 
