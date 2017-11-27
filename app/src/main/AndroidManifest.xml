@@ -28,6 +28,7 @@
         <activity android:name=".PowerControl" />
         <activity android:name=".Mouse" />
         <activity android:name=".LiveScreen" />
+        <activity android:name=".VolumeActivity" />
         <activity android:name=".DataTransfer.DataTransfer" />
         <activity android:name=".FileTransfer" />
         <activity android:name=".FileDownload"></activity>

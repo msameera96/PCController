@@ -127,7 +127,7 @@ public class LiveScreen extends AppCompatActivity {
            public void run() {
                updateScreenshot();
            }
-       },1000,2000);
+       },300,1400);
 
 
 

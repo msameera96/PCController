@@ -44,7 +44,7 @@ public class VolumeActivity extends AppCompatActivity {
                 @Override
                 public void getProgressOnActionUp(int progress, float progressFloat) {
                     MainActivity.sendMessageToServer("VolumeController");
-                    MainActivity.sendMessageToServer(progressFloat);
+                    MainActivity.sendMessageToServer(progress);
 
                 }
 
@@ -61,49 +61,5 @@ public class VolumeActivity extends AppCompatActivity {
 
 }
 
-
-       /* seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progress_value;
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progress_value=progress;
-
-                text.setText("Volume :"+progress+"/"+seek.getMax());
-                Toast.makeText(MainActivity.this,"sek bar is in progress",Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(MainActivity.this,"seekbar is in progress ",Toast.LENGTH_LONG).show();
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                text.setText("Volume :"+progress_value+"/"+seek.getMax());
-                Toast.makeText(MainActivity.this,"stop",Toast.LENGTH_LONG).show();
-
-            }
-        });
-        }
-
-   protected  void onResume(){
-        super.onResume();
-        mediaPlayer.start();;
-
-    }
-    protected  void onPause()
-    {
-        super.onPause();
-        mediaPlayer.stop();
-    }
-    protected  void onDestroy()
-    {
-        super.onDestroy();
-        mediaPlayer.release();
-        handler.removeCallbacks(runnable);
-    }
-*/
 
 
