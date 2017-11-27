@@ -1,9 +1,11 @@
-package pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller;
+package pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.FileDownload;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class FileDownload extends AppCompatActivity {
+import pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.R;
+
+public class FileDownloadAct extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

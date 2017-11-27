@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.FileDownload.FileDownloadAct;
+import pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.FileTransfer.FileTransferAct;
+
 /**
  * Created by sameer on 20-Nov-17.
  */
@@ -30,13 +33,13 @@ public class DialogFragmentController extends DialogFragment {
                         if(which ==0)
                         {
                             Toast.makeText(activity.getApplicationContext(),"File Transfer", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(activity,FileTransfer.class);
+                            Intent intent = new Intent(activity,FileTransferAct.class);
                             activity.startActivity(intent);
                         }
                         else if(which ==1)
                         {
                             Toast.makeText(activity.getApplicationContext(), "File Download", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(activity,FileDownload.class);
+                            Intent intent = new Intent(activity,FileDownloadAct.class);
                             activity.startActivity(intent);
                         }
                         dialog.dismiss();
