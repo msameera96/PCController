@@ -89,16 +89,17 @@ public class FileTransferAct extends AppCompatActivity implements View.OnClickLi
 
     private void transferFile(String name, String path) {
         Socket clientSocket = SocketHandler.getSocket();
-        if (clientSocket != null) {
+        if (clientSocket == null) {
+            Toast.makeText(getApplicationContext(), "Not Connected", Toast.LENGTH_LONG).show();
+        } else {
+
             MainActivity.sendMessageToServer("FILE_TRANSFER_REQUEST");
             MainActivity.sendMessageToServer(name);
-            new TransferFileToServer(getApplicationContext()){
+            new TransferFileToServer(FileTransferAct.this){
                 @Override
                 public void receiveData(Object result) {
                 }
             }.execute(new String[]{name, path});
-        } else {
-            Toast.makeText(getApplicationContext(), "Not Connected", Toast.LENGTH_LONG).show();
         }
     }
 

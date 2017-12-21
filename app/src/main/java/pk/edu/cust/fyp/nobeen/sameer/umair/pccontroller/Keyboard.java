@@ -13,7 +13,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
 
     private TextView keyTxt;
     private EditText keyboardEditText;
-    private Button ctrlButton, altButton, shiftButton, enterButton, tabButton, escButton, printScrButton, backspaceButton;
+    private Button ctrlButton, altButton, shiftButton,  tabButton, escButton, printScrButton, backspaceButton;
     private Button deleteButton, clearTextButton;
     private Button ctrlAltTButton, ctrlShiftZButton, altF4Button;
     private String previousText = "";
@@ -32,7 +32,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
         ctrlButton = (Button) findViewById(R.id.ctrlButton);
         altButton = (Button) findViewById(R.id.altButton);
         shiftButton = (Button) findViewById(R.id.shiftButton);
-        enterButton = (Button) findViewById(R.id.enterButton);
+
         tabButton = (Button) findViewById(R.id.tabButton);
         escButton = (Button) findViewById(R.id.escButton);
         printScrButton = (Button) findViewById(R.id.printScrButton);
@@ -46,7 +46,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
         altButton.setOnTouchListener(this);
         shiftButton.setOnTouchListener(this);
         backspaceButton.setOnClickListener(this);
-        enterButton.setOnClickListener(this);
+
         tabButton.setOnClickListener(this);
         escButton.setOnClickListener(this);
         printScrButton.setOnClickListener(this);
@@ -103,9 +103,7 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
             int keyCode = 17;//dummy initialization
             String action = "TYPE_KEY";
             switch (id) {
-                case  R.id.enterButton:
-                    keyCode = 10;
-                    break;
+                
                 case  R.id.tabButton:
                     keyCode = 9;
                     break;

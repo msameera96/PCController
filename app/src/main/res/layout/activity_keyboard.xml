@@ -45,15 +45,6 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/enterButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Enter"
-            android:textAllCaps="false" />
-
-        <Button
             android:id="@+id/ctrlButton"
             android:textAllCaps="false"
             style="?android:attr/buttonStyleSmall"

@@ -3,6 +3,7 @@ package pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -36,7 +37,8 @@ public class AvatarFileAdapter extends ArrayAdapter<AvatarFile> {
         View row = convertView;
         AvatarFileHolder holder = null;
         if (row == null) {
-
+            LayoutInflater inflater = LayoutInflater.from(context);
+            row = inflater.inflate(layoutResourceID, parent, false);
             holder = new AvatarFileHolder();
             holder.icon = (ImageView) row.findViewById(R.id.avatarImageView);
             holder.avatarHeading = (TextView) row.findViewById(R.id.avatarHeadingTextView);

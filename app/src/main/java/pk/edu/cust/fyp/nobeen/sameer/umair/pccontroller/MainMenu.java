@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
 
+import pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.FileTransfer.FileTransferAct;
+
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
     GridView gridView;
     OutputStreamSocketInitializer ossi;
@@ -51,6 +53,7 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
                         DialogFragmentController dialogFragmentController = new DialogFragmentController();
                         dialogFragmentController.customActivity(this);
                         dialogFragmentController.show(getFragmentManager(),"MyDialog");
+
 
                         break;
 
