@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static Socket socket;
     public static ObjectOutputStream objectOutputStream = null;
     public static ObjectInputStream objectInputStream = null;
+    OutputStreamSocketInitializer ossi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         connectBtn = (Button) findViewById(R.id.connect);
         ipAddressEditTxt = (EditText) findViewById(R.id.ipEditText);
+
         connectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
                     Conection conection = new Conection();
                     if (conection.connectionEstablishing(ipAddressEditTxt.getText().toString(), port)) {
                         Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
-
+                        ossi = new OutputStreamSocketInitializer();
+                        ossi.setSocketToOOS();
                         Intent intent;
                         intent = new Intent(MainActivity.this, Login.class);
                         startActivity(intent);
