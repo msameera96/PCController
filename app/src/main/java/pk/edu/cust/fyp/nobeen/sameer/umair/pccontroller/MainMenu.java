@@ -20,7 +20,6 @@ import pk.edu.cust.fyp.nobeen.sameer.umair.pccontroller.FileTransfer.FileTransfe
 
 public class MainMenu extends AppCompatActivity implements AdapterView.OnItemClickListener {
     GridView gridView;
-    //OutputStreamSocketInitializer ossi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +28,6 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
         gridView = (GridView) findViewById(R.id.grdView);
         gridView.setAdapter(new MainMenuAdapter(this));
         gridView.setOnItemClickListener(this);
-         //ossi = new OutputStreamSocketInitializer();
-        //ossi.setSocketToOOS();
-
 
     }
 

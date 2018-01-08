@@ -11,12 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ObjectInputStream;
-
 public class SignUp extends AppCompatActivity{
     EditText usernameET;
     EditText passET;
     //OutputStreamSocketInitializer ossi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +25,7 @@ public class SignUp extends AppCompatActivity{
         Button sigUpBtn = (Button) findViewById(R.id.signUpBtn);
         usernameET = (EditText) findViewById(R.id.usernameSignUpActEditText);
         passET = (EditText) findViewById(R.id.passSignUpActEditText);
+
         //ossi = new OutputStreamSocketInitializer();
         //ossi.setSocketToOOS();
 

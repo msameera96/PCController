@@ -35,11 +35,8 @@
 
         android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:layout_width="match_parent"
+        android:layout_width="325dp"
         android:layout_height="wrap_content">
-
-
-
 
 
         <com.xw.repo.BubbleSeekBar
@@ -47,19 +44,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:bsb_bubble_color="#39796b"
-            app:bsb_track_color="#FFB80000"
             app:bsb_bubble_text_color="@color/colorAccent"
-            app:bsb_second_track_color="@color/colorPrimary"
             app:bsb_max="100"
             app:bsb_min="0"
             app:bsb_progress="0"
+            app:bsb_second_track_color="@color/colorPrimary"
             app:bsb_section_count="5"
             app:bsb_section_text_position="bottom_sides"
             app:bsb_show_progress_in_float="false"
             app:bsb_show_section_mark="true"
             app:bsb_show_section_text="true"
             app:bsb_show_thumb_text="true"
-            />
+            app:bsb_track_color="#FFB80000" />
         <TextView
             android:id="@+id/volume"
             android:layout_width="95dp"

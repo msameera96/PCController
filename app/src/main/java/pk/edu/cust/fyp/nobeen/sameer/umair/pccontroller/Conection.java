@@ -17,14 +17,11 @@ public class Conection {
             public void run() {
                 try
                 {
-
-                    //  Log.i(TAG, "Attempting to connect to server");
-                    MainActivity.socket = new Socket(ipAddress, port);
-                    // Log.i(TAG, "Connection established");
-                    SocketHandler.setSocket(MainActivity.socket);
-                    // Log.i(TAG,"Socket is Connected: "+MainMenu.socket.isConnected());
-
-
+                    MainActivity.clientsocket = new Socket(ipAddress, port);
+                    SocketHandler.setSocket(MainActivity.clientsocket);
+                    OutputStreamSocketInitializer ossi;
+                    ossi = new OutputStreamSocketInitializer();
+                    ossi.setSocketToOOS();
 
                 } catch (Exception ex)
 

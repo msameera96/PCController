@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
-    //OutputStreamSocketInitializer ossi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +19,7 @@ public class Login extends AppCompatActivity {
         TextView signUpLink = (TextView) findViewById(R.id.signUpLoginActTextView);
         final EditText usern = (EditText) findViewById(R.id.usernameLoginActEditText);
         final EditText pas = (EditText) findViewById(R.id.passLoginActEditText);
-        //ossi = new OutputStreamSocketInitializer();
-        //ossi.setSocketToOOS();
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

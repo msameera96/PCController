@@ -4,7 +4,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 /**
- * Created by sameer on 24-Oct-17.
+ * Created by sameer on 24-Sep-17.
  */
 
 public class OutputStreamSocketInitializer {
@@ -15,13 +15,12 @@ public class OutputStreamSocketInitializer {
             @Override
             public void run() {
                 try {
-                    Socket socket;
-
-                    SocketHandler socketHandler = null;
-                    socket = socketHandler.getSocket();
-                    MainActivity.objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                    Socket clientsocket;
+                    clientsocket = SocketHandler.getSocket();
+                    MainActivity.objectOutputStream = new ObjectOutputStream(clientsocket.getOutputStream());
 
                 } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
         });
