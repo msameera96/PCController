@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:id="@+id/dataDownloadTextView"
             android:layout_height="50dp"
-            android:text="Data Download"
+            android:text="@string/file_download"
             android:gravity="center"
             android:background="#00ff7f"
             android:textColor="#000000"

@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:id="@+id/volumeControllerTxtView"
             android:layout_height="50dp"
-            android:text="Volume Controller"
+            android:text="@string/volume_control"
             android:gravity="center"
             android:background="#00ff7f"
             android:textColor="#000000"

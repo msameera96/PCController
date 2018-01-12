@@ -30,7 +30,9 @@
         <activity android:name=".LiveScreen" />
         <activity android:name=".VolumeActivity" />
         <activity android:name=".FileTransfer.FileTransferAct" />
-        <activity android:name=".FileDownload.FileDownloadAct"></activity>
+        <activity android:name=".FileDownload.FileDownloadAct" />
+        <activity android:name=".CMD" />
+        <activity android:name=".Word"></activity>
     </application>
 
 </manifest>

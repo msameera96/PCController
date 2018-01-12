@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,13 +17,13 @@
             android:layout_width="match_parent"
             android:id="@+id/powerControlTextView"
             android:layout_height="50dp"
-            android:text="Power Control"
+            android:text="@string/power_control"
             android:gravity="center"
             android:background="#00ff7f"
             android:textColor="#000000"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textSize="21dp"
+            android:textSize="21sp"
             android:textStyle="bold"
             android:elevation="6dp"/>
     </android.support.v7.widget.CardView>

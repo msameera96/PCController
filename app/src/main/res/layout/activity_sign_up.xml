@@ -63,7 +63,7 @@
             android:id="@+id/signUpBtn" />
 
         <TextView
-            android:text="PC Controller Sign Up"
+            android:text="@string/signup"
             android:textColor="#000000"
             android:textAlignment="center"
             android:textAllCaps="true"

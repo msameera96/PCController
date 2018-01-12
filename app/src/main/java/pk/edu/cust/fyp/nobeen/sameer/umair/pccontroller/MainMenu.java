@@ -40,6 +40,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
                 {
                     case 0:
                         Toast.makeText(getApplicationContext(), "CMD", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(this,CMD.class);
+                        startActivity(intent);
 
                         break;
 
@@ -103,6 +105,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 8:
                         Toast.makeText(getApplicationContext(), "Microsoft Word", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(this,Word.class);
+                        startActivity(intent);
 
                         break;
 

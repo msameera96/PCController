@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">PC Controller</string>
     <string name="data_transfer">Data Transfer</string>
+    <string name="cmd">Remote CMD</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="mouse">Mouse</string>
+    <string name="power_control">Power Control</string>
+    <string name="power_point">Power point</string>
+    <string name="remote_desktop">Remote Desktop</string>
+    <string name="volume_control">Volume Controller</string>
+    <string name="word">word</string>
+    <string name="file_download">File Download</string>
+    <string name="file_transfer">File Transfer</string>
+    <string name="signin">PC Controller Sign In</string>
+    <string name="signup">PC Controller Sign Up</string>
+    <string name="main_menu">PC Controller Menu</string>
     <string-array name="remote_activities">
         <item>Command Prompt</item>
         <item>File Transfer</item>
@@ -17,4 +30,6 @@
         <item>File Transfer</item>
         <item>File Download</item>
     </string-array>
+
+    
 </resources>

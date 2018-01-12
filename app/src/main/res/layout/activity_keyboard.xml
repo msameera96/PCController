@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:id="@+id/keboardTextView"
             android:layout_height="50dp"
-            android:text="Keyboard"
+            android:text="@string/keyboard"
             android:gravity="center"
             android:background="#00ff7f"
             android:textColor="#000000"
