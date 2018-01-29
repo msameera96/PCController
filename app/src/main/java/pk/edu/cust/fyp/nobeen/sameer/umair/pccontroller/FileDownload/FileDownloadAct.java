@@ -125,4 +125,11 @@ public class FileDownloadAct extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.sendMessageToServer("log_ended");
+
+    }
+
 }

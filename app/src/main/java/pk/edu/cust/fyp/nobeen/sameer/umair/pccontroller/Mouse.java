@@ -118,4 +118,11 @@ public class Mouse extends AppCompatActivity {
         MainActivity.sendMessageToServer(message);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.sendMessageToServer("log_ended");
+
+    }
+
 }

@@ -58,6 +58,13 @@ public class Keyboard extends AppCompatActivity implements View.OnTouchListener,
         keyboardEditText.addTextChangedListener(this);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.sendMessageToServer("log_ended");
+
+    }
+
     public boolean onTouch(View v, MotionEvent event) {
         String action = "KEY_PRESS";
         if (event.getAction() == MotionEvent.ACTION_DOWN) {

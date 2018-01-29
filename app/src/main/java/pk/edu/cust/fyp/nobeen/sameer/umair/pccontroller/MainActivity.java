@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity  implements Serializable{
 
                             if (true) {
 
-                                Toast.makeText(getApplicationContext(), "Success \n"+clientsocket+"\n"+objectOutputStream, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Successfully Connected", Toast.LENGTH_SHORT).show();
 
                                 Intent intent;
                                 intent = new Intent(MainActivity.this, Login.class);

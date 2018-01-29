@@ -67,4 +67,11 @@ public class PowerPoint extends AppCompatActivity {
     private void sendActionToServer(String action) {
         MainActivity.sendMessageToServer(action);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.sendMessageToServer("log_ended");
+
+    }
 }

@@ -39,6 +39,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
                 switch (position)
                 {
                     case 0:
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("CMD");
                         Toast.makeText(getApplicationContext(), "CMD", Toast.LENGTH_SHORT).show();
                         intent = new Intent(this,CMD.class);
                         startActivity(intent);
@@ -57,6 +59,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 2:
                         Toast.makeText(getApplicationContext(), "Remote Keyboard", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Remote Keyboard");
 
                         intent = new Intent(this, Keyboard.class);
                         startActivity(intent);
@@ -65,6 +69,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 3:
                         Toast.makeText(getApplicationContext(), "Remote Mouse", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Remote Mouse");
 
                         intent = new Intent(this, Mouse.class);
                         startActivity(intent);
@@ -73,6 +79,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 4:
                         Toast.makeText(getApplicationContext(), "Power Control", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Power Control");
 
                         intent = new Intent(this, PowerControl.class);
                         startActivity(intent);
@@ -81,6 +89,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 5:
                         Toast.makeText(getApplicationContext(), "Power Point", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Power Point");
 
                         intent = new Intent(this, PowerPoint.class);
                         startActivity(intent);
@@ -89,6 +99,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 6:
                         Toast.makeText(getApplicationContext(), "Remote Desktop", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Remote Desktop");
 
                         intent = new Intent(this,LiveScreen.class);
                         startActivity(intent);
@@ -97,6 +109,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 7:
                         Toast.makeText(getApplicationContext(), "Volume Control", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Volume Controller");
                         intent = new Intent(this,VolumeActivity.class);
                         startActivity(intent);
 
@@ -105,6 +119,8 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemCli
 
                     case 8:
                         Toast.makeText(getApplicationContext(), "Microsoft Word", Toast.LENGTH_SHORT).show();
+                        MainActivity.sendMessageToServer("log_started");
+                        MainActivity.sendMessageToServer("Microsoft Word");
                         intent = new Intent(this,Word.class);
                         startActivity(intent);
 

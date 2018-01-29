@@ -32,12 +32,16 @@ public class DialogFragmentController extends DialogFragment {
 
                         if(which ==0)
                         {
+                            MainActivity.sendMessageToServer("log_started");
+                            MainActivity.sendMessageToServer("File Transfer");
                             Toast.makeText(activity.getApplicationContext(),"File Transfer", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(activity,FileTransferAct.class);
                             activity.startActivity(intent);
                         }
                         else if(which ==1)
                         {
+                            MainActivity.sendMessageToServer("log_started");
+                            MainActivity.sendMessageToServer("File Download");
                             Toast.makeText(activity.getApplicationContext(), "File Download", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(activity,FileDownloadAct.class);
                             activity.startActivity(intent);

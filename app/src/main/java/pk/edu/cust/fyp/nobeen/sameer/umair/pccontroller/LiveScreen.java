@@ -134,6 +134,13 @@ public class LiveScreen extends AppCompatActivity {
 
    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.sendMessageToServer("log_ended");
+
+    }
+
 
 }
 

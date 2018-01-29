@@ -102,5 +102,11 @@ public class FileTransferAct extends AppCompatActivity implements View.OnClickLi
             }.execute(new String[]{name, path});
         }
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MainActivity.sendMessageToServer("log_ended");
+
+    }
 
 }
