@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class SignUp extends AppCompatActivity{
     EditText usernameET;
     EditText passET;
+    EditText rePassET;
     //OutputStreamSocketInitializer ossi;
 
 
@@ -25,6 +26,7 @@ public class SignUp extends AppCompatActivity{
         Button sigUpBtn = (Button) findViewById(R.id.signUpBtn);
         usernameET = (EditText) findViewById(R.id.usernameSignUpActEditText);
         passET = (EditText) findViewById(R.id.passSignUpActEditText);
+        rePassET = (EditText) findViewById(R.id.rePassSignUpActEditText);
 
         //ossi = new OutputStreamSocketInitializer();
         //ossi.setSocketToOOS();
@@ -45,19 +47,29 @@ public class SignUp extends AppCompatActivity{
             public void onClick(View v) {
                 String usern = usernameET.getText().toString();
                 String pas = passET.getText().toString();
-                if ((usern.matches("")) && (pas.matches(""))) {
+                String rePass  =rePassET.getText().toString();
+                if ((usern.matches("")) && (pas.matches("")) && (rePass.matches(""))) {
                     Toast.makeText(getApplicationContext(), "Please fill the fields first", Toast.LENGTH_LONG).show();
+
+
                 } else
 
                 {
-                    MainActivity.sendMessageToServer("DB_Mob_Detail");
-                    MainActivity.sendMessageToServer(getMobileInfoForDB());
-                    MainActivity.sendMessageToServer(getAndroidID());
+                    if(pas.equals(rePass))
+                    {
+                        MainActivity.sendMessageToServer("DB_Mob_Detail");
+                        MainActivity.sendMessageToServer(getMobileInfoForDB());
+                        MainActivity.sendMessageToServer(getAndroidID());
 
-                    MainActivity.sendMessageToServer("DB_User_Insert");
-                    MainActivity.sendMessageToServer(usern);
-                    MainActivity.sendMessageToServer(pas);
-                    new GetMessageNotification(getApplicationContext()).execute();
+                        MainActivity.sendMessageToServer("DB_User_Insert");
+                        MainActivity.sendMessageToServer(usern);
+                        MainActivity.sendMessageToServer(pas);
+                        new GetMessageNotification(getApplicationContext()).execute();
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(),"Password is not matched with Re-Password",Toast.LENGTH_LONG).show();
+                    }
+
 
                     //Toast.makeText(getApplicationContext(), "Mob name"+getMobileInfoForDB()+"Mob ID"+getAndroidID(), Toast.LENGTH_LONG).show();
                 }

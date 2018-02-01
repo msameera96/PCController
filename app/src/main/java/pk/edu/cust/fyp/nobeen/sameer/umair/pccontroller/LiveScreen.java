@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 import java.net.Socket;
@@ -29,6 +30,7 @@ public class LiveScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_screen);
         screenshotImageView = (ImageView) findViewById(R.id.liveScreenImageView);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         ViewTreeObserver vto = screenshotImageView.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             public void onGlobalLayout() {
@@ -127,7 +129,14 @@ public class LiveScreen extends AppCompatActivity {
            public void run() {
                updateScreenshot();
            }
-       },300,1400);
+       },300,600);
+       /*timer.schedule(new TimerTask() {
+           @Override
+           public void run() {
+               updateScreenshot();
+           }
+       }, 500);
+*/
 
 
 
